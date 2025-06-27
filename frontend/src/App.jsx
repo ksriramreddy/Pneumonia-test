@@ -80,7 +80,7 @@ function App() {
           }>PNEUMONIA</h1>
         </div>
         <button onClick={predict} className='p-2 bg-green-600 bg-opacity-75 border-[2px]  border-gray-600  rounded-lg font-semibold text-xl'>{
-          isPrediction? "Prediction..." : "Predict"
+          isPrediction? "Predicting..." : "Predict"
         }</button>
       </div>
     </div>
