@@ -22,10 +22,14 @@ function App() {
     }
 
     setResult({"predicted" : null})
+    console.log("is first time" , isFirstTime.current);
+    
     if(isFirstTime.current){
-      alert("If it is 1st Time. Please wait for some time with the server starts up...")
+      alert("If it is 1st Time, Please wait for some time while the server starts up...")
       isFirstTime.current = false
     }
+    console.log("is first time" , isFirstTime.current);
+
     try {
       setIsPredicting(true)
       const formData = new FormData()
