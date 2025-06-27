@@ -24,6 +24,7 @@ function App() {
     setResult({"predicted" : null})
     if(isFirstTime.current){
       alert("If it is 1st Time. Please wait for some time with the server starts up...")
+      isFirstTime.current = false
     }
     try {
       setIsPredicting(true)
