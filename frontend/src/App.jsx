@@ -5,6 +5,7 @@ import './App.css'
 import './index.css'
 import axios from 'axios'
 import { Result } from 'postcss'
+import noImage from "../public/noimage.png"
 
 function App() {
   const [selectedImage, setSelectedImage ] = useState()
@@ -36,6 +37,7 @@ function App() {
       setResult(result)
       width = "100"
     } catch (error) {
+      alert(error.message)
       console.log(error);
     }
   }
@@ -49,7 +51,7 @@ function App() {
     <div className='card bg-[#00ffa0] border-[4px] rounded-3xl border-[#05060f] border-solid flex md:flex-row flex-col gap-3 '>
       
       <div className='w-[50%] flex flex-col gap-2'>
-        <img className='w-full border rounded-xl h-[200px] md:h-[500px]'  src={selectedImage? URL.createObjectURL(selectedImage) : ""} alt="" />
+        <img className='w-full border rounded-xl h-[200px] md:h-[500px]'  src={selectedImage? URL.createObjectURL(selectedImage) : noImage} alt="" />
         <input className='w-full p-2 bg-black rounded-lg  text-white ' onChange={(e)=>{setSelectedImage(e.target.files[0])
            setResult({"predicted" : null})}}  type="file" accept='image/*'/>
       </div>
@@ -72,3 +74,11 @@ function App() {
 }
 
 export default App
+
+// function noImage(){
+//   return(
+//     <div className='w-full h-full flex items-center justify-center bg-gray-400 text-opacity-60'>
+//       NO IMAGE SELECTED
+//     </div>
+//   )
+// }

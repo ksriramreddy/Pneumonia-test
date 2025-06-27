@@ -1,6 +1,8 @@
 from fastapi import FastAPI, UploadFile ,File
 from fastapi.middleware.cors import CORSMiddleware
 from app.predict import predict_image
+import os
+import uvicorn
 
 
 
@@ -28,3 +30,7 @@ async def predict(file : UploadFile = File(...)):
         return predicted
     except Exception as e:
         print(e)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # fallback to 8000 locally
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
